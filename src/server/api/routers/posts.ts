@@ -72,7 +72,7 @@ export const postsRouter = createTRPCRouter({
       if (!success)
         throw new TRPCError({
           code: "TOO_MANY_REQUESTS",
-          message: "You are posting too fast",
+          message: "You are posting too fast, wait for a minute and try again",
         });
 
       const post = await ctx.prisma.post.create({
